@@ -1,5 +1,5 @@
 module "vpc" {
-  source = "../../modules/vpc"
+  source = "git::https://github.com/Moorthy-M/Terraform-Modules.git//vpc?ref=vpc-v1.0"
 
   vpc_cidr        = var.vpc_cidr
   public_subnets  = var.public_subnets
