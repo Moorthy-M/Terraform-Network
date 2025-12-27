@@ -30,3 +30,30 @@ variable "enable_nat" {
   type = bool
 }
 
+//VPC - Flow Logs
+
+variable "enable_vpc_flow_logs" {
+  type = bool
+}
+
+variable "role_name" {
+  type = string
+}
+
+variable "policy_name" {
+  type = string
+}
+
+variable "assume_role_services" {
+  type = list(string)
+}
+
+variable "policy_actions" {
+  type = list(string)
+}
+
+variable "policy_resources" {
+  type = list(string)
+}
+
+
