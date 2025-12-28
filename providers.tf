@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket       = "s3-moorthy-terraform-state"
-    key          = "Three-Tier-Architecture/network/terraform.tfstate"
+    key          = "Network/terraform.tfstate"
     region       = "ap-south-1"
     use_lockfile = true
     encrypt      = true
