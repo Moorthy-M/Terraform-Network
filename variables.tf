@@ -36,24 +36,34 @@ variable "enable_vpc_flow_logs" {
   type = bool
 }
 
-variable "role_name" {
-  type = string
+variable "vpcflowlogs_policy" {
+  type = map(object({
+    sid       = optional(string, null)
+    effect    = optional(string, "Allow")
+    actions   = list(string)
+    resources = list(string)
+
+    principal = optional(object({
+      type        = string
+      identifiers = list(string)
+    }))
+
+  }))
 }
 
-variable "policy_name" {
-  type = string
+variable "vpcflowlogs_role" {
+  type = map(object({
+    trust = object({
+      type        = string
+      identifiers = list(string)
+    })
+
+    managed_policy    = optional(list(string), [])
+    permission_policy = optional(list(string), [])
+  }))
 }
 
-variable "assume_role_services" {
-  type = list(string)
+variable "flow_logs_bucket" {
+  type    = bool
+  default = false
 }
-
-variable "policy_actions" {
-  type = list(string)
-}
-
-variable "policy_resources" {
-  type = list(string)
-}
-
-
