@@ -50,20 +50,3 @@ variable "vpcflowlogs_policy" {
 
   }))
 }
-
-variable "vpcflowlogs_role" {
-  type = map(object({
-    trust = object({
-      type        = string
-      identifiers = list(string)
-    })
-
-    managed_policy    = optional(list(string), [])
-    permission_policy = optional(list(string), [])
-  }))
-}
-
-variable "flow_logs_bucket" {
-  type    = bool
-  default = false
-}
